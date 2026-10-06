@@ -1,0 +1,12 @@
+# Step 1 (data + visualization)
+numpy
+pandas
+opencv-python
+matplotlib
+tqdm
+
+# Later steps (install now or when you reach them)
+ultralytics        # Step 2: YOLO detector
+scipy              # Step 3: Hungarian algorithm
+filterpy           # Step 3: Kalman filter
+motmetrics         # Step 6-7: metrics and ID-switch events

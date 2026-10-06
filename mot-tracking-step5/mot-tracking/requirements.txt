@@ -1,0 +1,16 @@
+# Step 1 (data + visualization)
+numpy
+pandas
+opencv-python
+matplotlib
+tqdm
+
+# Later steps (install now or when you reach them)
+ultralytics        # Step 2: YOLO detector
+scipy              # Steps 2-3: Hungarian matching (linear_sum_assignment)
+motmetrics         # Step 6-7: metrics and ID-switch events
+
+# Step 5 (appearance embeddings): pick ONE backend
+torch              # needed for --backend resnet or osnet  (install per pytorch.org for your GPU/CPU)
+torchvision        # --backend resnet (ImageNet ResNet-50)
+# torchreid        # --backend osnet (optional; see the torchreid README, install can be fiddly)
