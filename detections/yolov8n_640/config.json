@@ -1,14 +1,14 @@
 {
   "seq_dir": [
-    "data\\MOT17\\train\\MOT17-02-FRCNN"
+    "data\\MOT17\\train\\MOT17-04-FRCNN"
   ],
   "model": "yolov8n.pt",
   "imgsz": 640,
   "conf": 0.1,
   "iou": 0.7,
   "device": null,
-  "batch": 8,
-  "out_dir": null,
+  "batch": 1,
+  "out_dir": "detections/yolov8n_640",
   "overwrite": false,
   "ultralytics_version": "8.4.174"
 }

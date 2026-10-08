@@ -1,5 +1,6 @@
 **/data/
 **/results/
+**/embeddings/
 **/__pycache__/
 *.pyc
 .vscode/
