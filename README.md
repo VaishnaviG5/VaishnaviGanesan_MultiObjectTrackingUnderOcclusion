@@ -269,26 +269,6 @@ Primary Causes of ID Switches:
 - **What Happens**: The detector drops a pedestrian for 2–3 frames due to low contrast, shadows, or pose deformation.
 - **Why It Fails**: If a track is tentative or coasting during complex crowd movement, missing detections break track continuity.
 
----
-
-## Interview Preparation & Code Explanations
-
-Here are key technical concepts to master for technical discussions:
-
-### Q1: How does the Hungarian algorithm solve data association?
-> *"The Hungarian algorithm solves the Linear Sum Assignment Problem (LSAP) in $O(N^3)$ polynomial time. Given an $N \times M$ cost matrix $C$ where $C_{i,j}$ represents the matching penalty (such as $1 - \text{IoU}$ or Cosine Distance) between predicted track $i$ and detection $j$, it finds a bijective assignment mapping that minimizes the global sum of costs. We post-filter any assigned pair whose cost exceeds a threshold to avoid invalid forced matches."*
-
-### Q2: Why does SORT use Kalman filter prediction before matching?
-> *"In a video sequence, objects move between frames $t-1$ and $t$. Matching frame $t-1$'s raw bounding box to frame $t$'s detection would fail for fast-moving targets. The Kalman filter predicts the object's position at frame $t$ based on estimated velocity. This shifts the candidate box forward, maximizing IoU overlap with the new detection."*
-
-### Q3: What is the matching cascade in DeepSORT?
-> *"In crowded scenes with occlusions, tracks that have been lost for 20 frames have high Kalman covariance uncertainty. If matched simultaneously with tracks seen 1 frame ago, the older track might steal a detection. The matching cascade solves this by prioritizing association by track recency: tracks seen at frame $t-1$ are matched first, then $t-2$, and so on down to $t - \text{max\_age}$."*
-
-### Q4: Why does MOTA sometimes penalize trackers more than IDF1?
-> *"MOTA measures detection and local tracking accuracy: $\text{MOTA} = 1 - \frac{\text{FN} + \text{FP} + \text{IDSW}}{\text{GT}}$. Because every false positive and miss subtracts from MOTA, poor detector recall heavily deflates the score. In contrast, IDF1 measures global identity consistency through bipartite graph matching of ground-truth identities to predicted track IDs, making it less sensitive to sporadic frame-level detector misses."*
-
----
-
 ## Directory Structure
 
 ```
